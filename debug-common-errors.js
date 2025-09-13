@@ -27,7 +27,11 @@ Think about which debugging methods you found most useful and how you might appl
 console.log("Welcome to the bootcamp
 
 // What’s Wrong?
+// Syntax error
+// The srting isnt closed with a ""
+// missing closing parenthesis
 
+console.log("Welcome to the bootcamp");
 
 // Program B
 // Description:
@@ -40,8 +44,14 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 // What’s Wrong?
+// Runtime Error
+// "eight" is. string not a number gives NaN
 
-
+let numbers = [2, 4, 8];
+for (let i = 0; i < numbers.length; i++) {
+  let doubled = numbers[i] * 2;
+  console.log(doubled);
+}
 
 // Program C (Logic Error)
 // Description:
@@ -60,3 +70,19 @@ function isPrime(num) {
 console.log(isPrime(7)); // Expected true but gets false
 
 // What’s Wrong?
+// Logic Error
+// It returns true when a divisoor is found, but should not mean not prime
+// It returns false at the end, but if no divisor is found the number is prime
+//
+function isPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false; // not prime
+    }
+  }
+  return true; // prime
+}
+
+console.log(isPrime(7)); // true 
+console.log(isPrime(10)); // false 
